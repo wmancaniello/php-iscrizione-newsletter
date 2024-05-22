@@ -18,12 +18,12 @@ include './partials/function.php';
 
         <form action="" method="post" class="mt-4 d-flex flex-column gap-3">
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Inserisci email" required>
+                <label for="text">Email:</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Inserisci email, esempio: pietrorossi@email.com">
 
                 <?php if (isset($_POST['email'])) : ?>
                     <?php if (!validateEmail($_POST['email'])) : ?>
-                        <small class="text-danger">Email non valida, esempio: "pietrorossi@email.com"</small>
+                        <small class="text-danger">Email non valida, prego inserire una mail valida</small>
                     <?php else : ?>
                         <small class="text-success">Email valida!</small>
                     <?php endif; ?>
