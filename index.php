@@ -1,5 +1,5 @@
 <?php
-include './function.php';
+include './partials/function.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,11 +19,14 @@ include './function.php';
         <form action="" method="post" class="mt-4 d-flex flex-column gap-3">
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Inserisci la tua email" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Inserisci email" required>
 
-
-                <?php if (isset($_POST['email']) && !validateEmail($_POST['email'])) : ?>
-                    <small class="text-danger">Email non valida, esempio: "pietrorossi@email.com"</small>
+                <?php if (isset($_POST['email'])) : ?>
+                    <?php if (!validateEmail($_POST['email'])) : ?>
+                        <small class="text-danger">Email non valida, esempio: "pietrorossi@email.com"</small>
+                    <?php else : ?>
+                        <small class="text-success">Email valida!</small>
+                    <?php endif; ?>
                 <?php endif; ?>
 
             </div>
