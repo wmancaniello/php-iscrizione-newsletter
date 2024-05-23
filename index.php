@@ -13,25 +13,26 @@ include __DIR__ . "/partials/function.php";
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container d-flex justify-content-center align-items-center flex-column mt-5">
         <h1 class="text-center">Iscrizione alla newsletter</h1>
+        <div class="card col-6">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="mt-4 d-flex justify-content-center align-items-center flex-column">
+                <div class="form-group d-flex flex-column gap-3">   
+                    <label for="text">Email:</label>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Inserisci email">
 
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="mt-4 d-flex flex-column gap-3">
-            <div class="form-group">
-                <label for="text">Email:</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Inserisci email, esempio: pietrorossi@email.com">
-
-                <?php if (isset($_POST['email'])) : ?>
-                    <?php if (!validateEmail($_POST['email'])) : ?>
-                        <small class="text-danger">Email non valida, prego inserire una mail valida</small>
-                    <?php else : ?>
-                        <small class="text-success">Email valida!</small>
+                    <?php if (isset($_POST['email'])) : ?>
+                        <?php if (!validateEmail($_POST['email'])) : ?>
+                            <small class="text-danger">Email non valida, prego inserire una mail valida</small>
+                        <?php else : ?>
+                            <small class="text-success">Email valida!</small>
+                        <?php endif; ?>
                     <?php endif; ?>
-                <?php endif; ?>
 
-            </div>
-            <button type="submit" class="btn btn-primary">Registrati</button>
-        </form>
+                </div>
+                <button type="submit" class="btn btn-primary col-3">Registrati</button>
+            </form>
+        </div>
 
     </div>
 
