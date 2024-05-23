@@ -1,5 +1,5 @@
 <?php
-include './partials/function.php';
+include __DIR__ . "/partials/function.php";
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ include './partials/function.php';
     <div class="container mt-5">
         <h1 class="text-center">Iscrizione alla newsletter</h1>
 
-        <form action="" method="post" class="mt-4 d-flex flex-column gap-3">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="mt-4 d-flex flex-column gap-3">
             <div class="form-group">
                 <label for="text">Email:</label>
                 <input type="text" class="form-control" id="email" name="email" placeholder="Inserisci email, esempio: pietrorossi@email.com">
